@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: url('a2d31571-632f-49f0-83a6-e31c9a45a73b.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 50px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      width: 350px;
+      text-align: center;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .login-box h2 {
+      margin-bottom: 30px;
+      font-weight: normal;
+      letter-spacing: 1px;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      background: transparent;
+      border-bottom: 1px solid white;
+      color: white;
+      outline: none;
+    }
+
+    .login-box input::placeholder {
+      color: #ccc;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      border: 1px solid white;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-box button:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    a{
+       margin-top:50px;
+       padding:12px;
+       
+    }
+ .ghost{
+    background:transparent;
+    border:1px solid #e6e9ef;
+    padding:10px 14px;
+    border-radius:10px;
+    cursor:pointer;
+}
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>LOGIN FORM</h2>
+    <form id="loginform" onsubmit="return validateForm()">
+      <input type="text" placeholder="Enter Username"  id="username">
+      <input type="password" placeholder="Enter Password" id="password">
+      <button type="button" id="togglePass" class="ghost" aria-label="Show password">Show</button>
+      <button type="submit" id="login">LOGIN</button>
+
+      
+
+      <a href="" onclick="resetform">Reset</a>
+    </form>
+    <a href="" onclick="openForgotPassword()"  target="_blank">forget password</a>
+    <p id="message"></p>
+  </div>
+
+</body>
+<script>
+
+    const form = document.getElementById ('loginform');
+    const toggle = document.getElementById('togglePass');
+     toggle.addEventListener('click', ()=>{
+      if(password.type === 'password'){
+        password.type = 'text';
+        toggle.textContent = 'Hide';
+      } else {
+        password.type = 'password';
+        toggle.textContent = 'Show';
+      }
+    });
+
+     function resetform(){
+      document.getElementById("loginform").reset();
+        //this is clear all input field inside the form
+   }
+   function validateForm(){
+    const username =document.getElementById ("username").value.trim();
+    const password =document.getElementById ("password").value.trim();
+    if (username === "" || password === ""){
+        alert("Please fill in both username and password");
+         return false; // stop form submission
+    }else{
+     alert("✅ Login successful (demo only)!");
+      return true; // allow form submission
+    }
+   
+}   
+ function openForgotPassword() {
+    window.open("https://www.geeksforgeeks.org/", "_blank", "width=600,height=400");
+    
+ }
+   
+</script>
+</html>
